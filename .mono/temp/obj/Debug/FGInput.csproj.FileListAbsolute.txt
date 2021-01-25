@@ -1,0 +1,8 @@
+C:\Users\Omari\Documents\Projects\Godot\FGInput\.mono\temp\bin\Debug\FGInput.dll
+C:\Users\Omari\Documents\Projects\Godot\FGInput\.mono\temp\bin\Debug\FGInput.pdb
+C:\Users\Omari\Documents\Projects\Godot\FGInput\.mono\temp\obj\Debug\FGInput.csprojAssemblyReference.cache
+C:\Users\Omari\Documents\Projects\Godot\FGInput\.mono\temp\obj\Debug\FGInput.AssemblyInfoInputs.cache
+C:\Users\Omari\Documents\Projects\Godot\FGInput\.mono\temp\obj\Debug\FGInput.AssemblyInfo.cs
+C:\Users\Omari\Documents\Projects\Godot\FGInput\.mono\temp\obj\Debug\FGInput.csproj.CoreCompileInputs.cache
+C:\Users\Omari\Documents\Projects\Godot\FGInput\.mono\temp\obj\Debug\FGInput.dll
+C:\Users\Omari\Documents\Projects\Godot\FGInput\.mono\temp\obj\Debug\FGInput.pdb
