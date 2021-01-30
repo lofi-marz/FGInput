@@ -39,14 +39,6 @@ public class Main : Node2D
 		Label labelB = GetNode("B") as Label;
 		labelA.Text = light ? "(A)":"a";
 		labelB.Text = heavy ? "(B)":"b";
-		if (light) {
-			GD.Print("Light Attack");
-		} else {
-		}
-		if (heavy) {
-			GD.Print("Heavy Attack");
-			
-		}
 	}
 
 	

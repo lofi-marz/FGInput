@@ -12,10 +12,15 @@ public class InputStack : Node
 
 	private Stack<DirectionInput> inputs;
 	private int idleFrames = 0;
+	MoveDictionary moves;
+	[Signal]
+	public delegate void MoveInputted(string move);
 
 	public override void _Ready()
 	{
 		inputs = new Stack<DirectionInput>();
+		moves = new MoveDictionary();
+		moves.Moves.Add("hadouken", new List<Direction> {Direction.S, Direction.SE, Direction.E});
 	}
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,19 +38,12 @@ public class InputStack : Node
 			idleFrames = 0;
 		}
 		UpdateInputStack(currentInput);
-		if (Input.IsActionJustPressed("light")) {
-			DirectionInput lastInput = inputs.Pop();
-			
-			if (lastInput.Direction == Direction.E) {
-				GD.Print("Yea boiiii");
+		if (Input.IsActionJustPressed("light") || Input.IsActionJustPressed("heavy")) {
+			var move = moves.CheckMoves(inputs);
+			if (move != "") {
+				EmitSignal(nameof(MoveInputted), move);
 			}
-			inputs.Clear();
-		} else if (Input.IsActionJustPressed("heavy")) {
-			DirectionInput lastInput = inputs.Pop();
-			
-			if (lastInput.Direction == Direction.E) {
-				GD.Print("Super yea boiiii");
-			}
+
 			inputs.Clear();
 		}
 		
@@ -63,10 +61,10 @@ public class InputStack : Node
   }
 
   private void UpdateInputStack(Direction currentInput) {
-	  	GD.Print("Inputs:");
+	  //	GD.Print("Inputs:");
 		foreach (var input in inputs.ToArray())
 		{
-			GD.Print(input);
+			//GD.Print(input);
 		}
 		if (inputs.Count > 0) {
 			DirectionInput lastInput = inputs.Pop();
