@@ -18,12 +18,19 @@ public class MoveDictionary {
 			move.Value.Reverse();
 			var i = 0;
 			for (i = 0; i < move.Value.Count; i++) {
-				
-				if (move.Value.Count > inputList.Count) break;
+				if (move.Value.Count > inputList.Count) { 
+					move.Value.Reverse();
+					break;
+				}
+
 				GD.Print($"{move.Value[i]} == {inputList[i].Direction}");
-				if (move.Value[i] != inputList[i].Direction) break;
+				if (move.Value[i] != inputList[i].Direction) {
+					move.Value.Reverse();
+					break;
+				}
 			}
 			GD.Print(i);
+			move.Value.Reverse();
 			if (i == move.Value.Count) return move.Key; //If we reach the end of the move list and everything has matched up, return the move
 		}
 		return "";

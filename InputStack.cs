@@ -16,6 +16,9 @@ public class InputStack : Node
 	[Signal]
 	public delegate void MoveInputted(string move);
 
+	[Signal]
+	public delegate void DirectionInputted(Direction direction);
+
 	public override void _Ready()
 	{
 		inputs = new Stack<DirectionInput>();
@@ -61,22 +64,19 @@ public class InputStack : Node
   }
 
   private void UpdateInputStack(Direction currentInput) {
-	  //	GD.Print("Inputs:");
-		foreach (var input in inputs.ToArray())
-		{
-			//GD.Print(input);
-		}
 		if (inputs.Count > 0) {
 			DirectionInput lastInput = inputs.Pop();
 			if (lastInput.Count >= DirectionInput.MAX_FRAMES || lastInput.Direction != currentInput) {
 				inputs.Push(lastInput);
 				inputs.Push(new DirectionInput(currentInput));
+				EmitSignal(nameof(DirectionInputted), currentInput);
 			} else {
 				lastInput.Count++;
 				inputs.Push(lastInput);
 			}
 		} else {
 			inputs.Push(new DirectionInput(currentInput));
+			EmitSignal(nameof(DirectionInputted), currentInput);
 		}
   }
 

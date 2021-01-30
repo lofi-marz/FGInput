@@ -46,3 +46,5 @@ __meta__ = {
 }
 
 [node name="InputStack" parent="." instance=ExtResource( 5 )]
+[connection signal="DirectionInputted" from="InputStack" to="." method="_on_InputStack_DirectionInputted"]
+[connection signal="MoveInputted" from="InputStack" to="." method="_on_InputStack_MoveInputted"]

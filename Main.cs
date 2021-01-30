@@ -41,5 +41,20 @@ public class Main : Node2D
 		labelB.Text = heavy ? "(B)":"b";
 	}
 
+	private void _on_InputStack_DirectionInputted(Direction direction)
+	{
+		GD.Print(direction);
+	}
+
+	private void _on_InputStack_MoveInputted(string move)
+	{
+		GD.Print(move);
+	}
 	
 }
+
+
+
+
+
+
