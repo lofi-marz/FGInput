@@ -11,12 +11,15 @@ public class Main : Node2D
 	// Called when the node enters the scene tree for the first time.
 	private Vector2 stickOrigin;
 
+	private ArrowDisplay inputArrowDisplay;
+
+	private PackedScene arrowScene = GD.Load<PackedScene>("res://Arrow.tscn");
 	private int maxTravel = 30;
 	public override void _Ready()
 	{
 		stickGate = GetNode("./StickGate") as Sprite;
 		stickHead = GetNode("./StickGate/StickHead") as Sprite;
-		
+		inputArrowDisplay = GetNode("./ArrowDisplay") as ArrowDisplay;
 		stickOrigin = stickGate.Position;
 	}
 
@@ -49,6 +52,8 @@ public class Main : Node2D
 	private void _on_InputStack_MoveInputted(string move)
 	{
 		GD.Print(move);
+
+		
 	}
 	
 }
